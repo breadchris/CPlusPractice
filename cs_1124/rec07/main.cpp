@@ -1,59 +1,55 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 #include "Registrar.h"
 
 using namespace std;
 using namespace BrooklynPoly;
 
+void processCommand(const vector<string>& command, Registrar& registrar) {
+    if (command.size() == 0) {
+        cerr << "Did not enter vaild command" << endl;
+    }
+
+    if (command[0] == "PrintReport"& command.size() == 1) {
+        cout << registrar << endl;
+    } else if (command[0] == "AddCourse" && command.size() == 2) {
+        registrar.addCourse(command[1]);
+    } else if (command[0] == "AddStudent" && command.size() == 2) {
+        registrar.addStudent(command[1]);
+    } else if (command[0] == "CancelCourse" && command.size() == 2) {
+        registrar.cancelCourse(command[1]);
+    } else if (command[0] == "EnrollStudentInCourse" && command.size() == 3) {
+        registrar.enrollStudentInCourse(command[1], command[2]);
+    } else if (command[0] == "Purge" && command.size() == 2) {
+        registrar.purge();
+    }
+}
+
+void readInput(const string& file) {
+    Registrar registrar;
+
+    ifstream inputFile(file);
+    if (!inputFile) {
+        cerr << "Unable to open file: " << file << endl;
+    }
+
+    string line;
+    while (getline(inputFile, line)) {
+        stringstream ss(line);
+        string word;
+        vector<string> command;
+        while (ss >> word) {
+            command.push_back(word);
+        }
+        processCommand(command, registrar);
+    }
+
+    inputFile.close();
+}
+
 int main() {
-	Registrar registrar;
-
-	cout << "No courses or students added yet\n";
-	cout << registrar << endl;  // or registrar.printReport()
-	 
-	cout << "AddCourse CS101.001\n";
-	registrar.addCourse("CS101.001");
-	cout << registrar << endl;  // or registrar.printReport()
-
-	cout << "AddStudent FritzTheCat\n";
-	registrar.addStudent("FritzTheCat");
-	cout << registrar << endl;  // or registrar.printReport()
-
-	cout << "AddCourse CS102.001\n";
-	registrar.addCourse("CS102.001");
-	cout << registrar << endl;  // or registrar.printReport()
-
-	cout << "EnrollStudentInCourse FritzTheCat CS102.001\n";
-	registrar.enrollStudentInCourse("FritzTheCat", "CS102.001");
-	cout << "EnrollStudentInCourse FritzTheCat CS101.001\n";
-	registrar.enrollStudentInCourse("FritzTheCat", "CS101.001");
-	cout << registrar << endl;  // or registrar.printReport()
-
-	cout << "EnrollStudentInCourse Bullwinkle CS101.001\n";
-	cout <<  "Should fail, i.e. do nothing, since Bullwinkle is not a student.\n";
-	registrar.enrollStudentInCourse("Bullwinkle", "CS101.001");
-	cout << registrar << endl;  // or registrar.printReport()
-
-	cout << "CancelCourse CS102.001\n";
-	registrar.cancelCourse("CS102.001");
-	cout << registrar << endl;  // or registrar.printReport()
-	
-	/*
-	// [OPTIONAL - do later if time]
-	cout << "ChangeStudentName FritzTheCat MightyMouse\n";
-	registrar.changeStudentName("FritzTheCat", "MightyMouse");
-	cout << registrar << endl;  // or registrar.printReport()
-
-	cout << "DropStudentFromCourse MightyMouse CS101.001\n";
-	registrar.dropStudentFromCourse("MightyMouse", "CS101.001");
-	cout << registrar << endl;  // or registrar.printReport()
-
-	cout << "RemoveStudent FritzTheCat\n";
-	registrar.removeStudent("FritzTheCat");
-	cout << registrar << endl;  // or registrar.printReport()
-	*/
-
-	cout << "Purge for start of next semester\n";
-	registrar.purge();
-	cout << registrar << endl;  // or registrar.printReport()
+    string file = "input";
+	readInput(file);
 }
