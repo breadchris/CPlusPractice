@@ -4,20 +4,20 @@
 
 using namespace std;
 
-class Nobel;
+class Noble;
 
 class Protector {
 protected:
     string name;
     int strength;
-    Nobel* boss;
+    Noble* boss;
 public:
     Protector (const string _name, int _strength)
         : name(_name), strength(_strength), boss(nullptr) {}
 
     virtual void defend() = 0;
 
-    bool hire(Nobel* nobel) {
+    bool hire(Noble* nobel) {
         if (isDead() || boss != nullptr) {
             return false;
         } else {
@@ -35,16 +35,16 @@ public:
     }
 };
 
-class Nobel {
+class Noble {
 protected:
     bool dead;
     string name;
 public:
-    Nobel (const string _name) : name(_name), dead(false) {}
+    Noble (const string _name) : name(_name), dead(false) {}
 
     bool isDead() { return dead; }
 
-    virtual void battle(Nobel& nobel) {
+    void battle(Noble& nobel) {
         int thisStrength = this->getStrength();
         int challengerStrength = nobel.getStrength();
 
@@ -105,17 +105,17 @@ public:
     virtual void takeDamage(float ratio) = 0;
     virtual void battleCry() {}
 
-    friend ostream& operator<<(ostream& os, Nobel& nobel) {
+    friend ostream& operator<<(ostream& os, Noble& nobel) {
         os << nobel.name;
         return os;
     }
 };
 
-class Lord : public Nobel {
+class Lord : public Noble {
 private:
     vector<Protector*> protectors;
 public:
-    Lord (const string _name) : Nobel(_name) {}
+    Lord (const string _name) : Noble(_name) {}
 
     void die() {
         dead = true;
@@ -154,11 +154,11 @@ public:
     }
 };
 
-class PersonWithStrengthToFight : public Nobel {
+class PersonWithStrengthToFight : public Noble {
 private:
     int strength;
 public:
-    PersonWithStrengthToFight (const string _name, int _strength) : Nobel(_name), strength(_strength) {}
+    PersonWithStrengthToFight (const string _name, int _strength) : Noble(_name), strength(_strength) {}
 
     void die() {
         dead = true;
