@@ -1,0 +1,33 @@
+Part One:
+
+L1: 5 7 9 1
+L2: 6 3 2
+Target: 7 9 1
+Splicing L2 at target in L1
+L1: 5 7 6 3 2 9 1
+L2: 6 3 2 9 1
+=====================
+
+Part two:
+
+Target: 1 2 3 2 3 2 4 5 6
+
+Attempt match: 1
+1 2 3 2 3 2 4 5 6
+
+Attempt match: 3 9
+Failed to match
+
+Attempt match: 2 3
+2 3 2 3 2 4 5 6
+
+Attempt match: 2 4 5 6
+2 4 5 6
+
+Attempt match: 2 3 2 4
+2 3 2 4 5 6
+
+Attempt match: 5 6 7
+Failed to match
+
+Press any key to continue
