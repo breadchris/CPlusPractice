@@ -1,0 +1,20 @@
+1:
+    a) O(log(n))
+    b) O(nlog(n))
+    c) O(n)
+    d) O(n^2)
+    e) O(n^2)
+2: delete[] calls destructors for each element of array, delete calls destructor for given pointer
+3:
+    template< class Object >
+    memoryBuffer<Object>& memoryBuffer<Object>::operator=(const memoryBuffer<Object>& rhs) {
+        if (this == *rhs)
+            return *this;
+        this->theSize = rhs.theSize;
+        Object* thisObjects = this->objects;
+        Object* rhsObjects = rhs.objects;
+        for (int i = 0; i < rhs.theSize; ++i) {
+            thisObjects[i] = rhsObjects[i];
+        }
+        return *this;
+    }

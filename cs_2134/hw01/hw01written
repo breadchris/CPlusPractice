@@ -1,0 +1,77 @@
+Programming
+2. 
+==== Nodes ====
+Address: 0x7f97d9c04bb0 Value: A
+Address: 0x7f97d9c04b80 Value: C
+Address: 0x7f97d9c04ba0 Value: B
+Address: 0x7f97d9c04b90 Value: D
+
+3.
+==== Array ====
+Address: 0x7f97d9c04bc0 Value: 1
+Address: 0x7f97d9c04bc4 Value: 2
+Address: 0x7f97d9c04bc8 Value: 3
+Address: 0x7f97d9c04bcc Value: 4
+Address: 0x7f97d9c04bd0 Value: 5
+
+Written
+1.
+	a) O(n)
+	b) O(n^2)
+	c) O(n*log(n))
+	d) O(n^3)
+	e) O(n^3)
+	f) O(log(n^12))
+	g) O(n*log(n))
+	h) O(n^2)
+	i) O(n^3)
+
+2.
+	a) O(n)
+	b) O(n^2)
+	c) O((n^2 - n) / 2) = O(n^2)
+	d) Infinite loop
+	e) O(n)
+	f) O(n^2)
+	g) O(n^3)
+	h) O(log n)
+	i) O(n*log n)
+	j) O(log n)
+3. O(n^2)
+4. 
+	a) 0.05 * 4 = 0.20
+	b) 0.05 * 16 = 0.80
+	c) 0.05 * 256 = 12.80
+5. O(n^2)
+6. 2n^2 + 4n*log(n) + 5n^1 + 12n^0 = O(n^2)
+
+Since the function 2n^2 is the upper bound of all other functions of the expression, it can be concluded that O(n^2) is the deciding behavior of the expression as n approaches infinity.
+   
+7.
+   n     maxSubsequenceSum1 O(n^3)   maxSubsequenceSum2 O(n^2)   maxSubsequenceSum4 O(n)  
+ ------ --------------------------- --------------------------- ------------------------- 
+   128    0.001668                    0.000050                    0.000002                 
+   256    0.012149                    0.000162                    0.000003                 
+   512    0.070995                    0.000435                    0.000005                 
+  1024    0.538534                    0.002059                    0.000008                 
+  2048    4.436473                    0.006770                    0.000014                 
+  4096   31.811457					  0.026700					  0.000019
+
+8.
+   n     maxSubsequenceSum1 O(n^3)   maxSubsequenceSum2 O(n^2)   maxSubsequenceSum4 O(n)  
+ ------ --------------------------- --------------------------- ------------------------- 
+   128    0.001668                    0.000050                    0.000002                 
+   256    0.013344                    0.0002                      0.000004               
+   512    0.106752                    0.0008                      0.000008               
+  1024    0.854016                    0.0032                      0.000016               
+  2048    6.832128                    0.0128                      0.000032               
+  4096   54.657024				  	  0.0512				      0.000064
+9.
+	if n = 2^18
+	maxSubsequenceSum1 - 0.001668 * (2^(18 - 7))^3 = 14328010.8995 
+	maxSubsequenceSum2 - 0.001668 * (2^(18 - 7))^2 = 6996.099072
+	maxSubsequenceSum4 - 0.001668 * (2^(18 - 7))^1 = 3.416064
+10.
+	maxSubsequenceSum1 - 23 weeks, 4 days, 20:00:10
+	maxSubsequenceSum2 - 0 weeks, 0 days, 1:56:36
+	maxSubsequenceSum4 - 0 weeks, 0 days, 0:00:03
