@@ -1,0 +1,80 @@
+1)
+    Average: O(n)
+    Worst: O(n^2)
+2)
+    c = {1,2,3,4,5,6,7,8,9,10}
+    itr1 = pointer to 3
+    itr2 = pointer to 5
+    itr3 = pointer to 9
+    c.erase(itr2) // c now becomes {1,2,3,4,6,7,8,9,10}
+                  // itr2 now points to 6
+                  // itr3 now points to 10
+
+    cout << *itr1 << endl; // prints 3
+    cout << *itr2 << endl; // prints 6
+    cout << *itr3 << endl; // prints 10
+
+3)
+    No, since c is a vector, its contents are allocated dynamically when there is not enough space in the vector for elements being added to it.
+    In this case, the vector is created with only a size of 1, and 100 elements are added to it causing its contents to be realloced multiple times.
+    itr initially points to the first element of the vector, but when the vector gets reallocated, the beginning of the vector takes on another memory address.
+    Therefore, itr will not point to any element in c as it will reference some uninitialized space.
+4)
+    126
+5)
+
+    a)
+        int numbers[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int oneTwo[6] = {1, 2, 1, 2, 1, 2};
+        int oneTwoThree[6] = {1, 2, 3, 1, 2, 3};
+        vector<int> A(numbers, numbers + 10);
+              // A now contains {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+        vector<int> B(oneTwo, oneTwo + 6);
+              // B now contains  {1, 2, 1, 2, 1, 2};
+        vector<int> C(oneTwoThree, oneTwoThree + 6);
+              // C now contains the first 6 items of oneTwoThree
+        vector<int> D(6);
+        vector<int> E(10);
+    b)
+        copy(A.begin( ), A.begin( ) + 6, D); // D now equals {1, 2, 3, 4, 5, 6}
+    c)
+        cout << count_if(B.begin( ), B.end( ),  1);
+        cout << count_if(B.begin( ), B.end( ), bind1st(not_equal_to<int>( ), 1));
+    d)
+        bool same;
+        same = equal(A.begin( ), A.begin( ) + 3, C.begin( ));
+    e)
+        vector<int>::iterator vecItr;
+        vecItr = find(A.begin( ), A.end( ), 5);
+        // returns an iterator to 5 in vector A
+        if (vecItr != A.end( ))
+            cout << *vecItr;
+            // prints out the value pointed to by vecItr
+
+
+        Find the first item in C that is greater than 2
+           vecItr = find_if(C.begin( ), C.end( ), bind2nd(greater<int>(), 2));
+                  // returns an iterator to 3 in C
+           if (vecItr != C.end( ))
+             cout << *vecItr;
+            // prints out the value pointed to by vecItr
+    f)
+        reverse(C.begin( ), C.end( ));
+          // C is now reversed, it contains {3, 2, 1, 3, 2, 1}
+    g)
+        sort(B.begin( ), B.begin( ) + 4);
+          // B now contains {1, 1, 2, 2, 1, 2}
+        sort(A.begin( ), A.end( ), greater<int>());
+          //A now contains {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+    h)
+        transform(A.begin( ), A.end( ), E.begin( ), negate<int>());
+          // E now contains {-10, -9, -8, -7, -6, -5, -4, -3, -2, -1}
+    i)
+        struct c_unique {
+          int current;
+          c_unique() {current=0;}
+          int operator()() {return ++current;}
+        } UniqueNumber;
+
+        std::generate (A.begin(), A.end(), UniqueNumber);
+        // A now contains {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}

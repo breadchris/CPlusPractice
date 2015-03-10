@@ -1,0 +1,169 @@
+1.
+Peudocode:
+    forward iterator, itr = iterator end
+    for each item in the container
+      test if it satisfies pred
+      if it does set itr to point to the item
+    return itr
+
+Precondition:
+    The iterators, start and end, have the capabilities of a forward iterator, and refer to a range
+    [start, end) in a container.
+    The functor, pred, has an overloaded operator() that takes on item of the type in [start, end) 
+    and returns a boolean.
+
+Postcondition:
+    If pred's operator() returned false for all items in the range, the function returns end.
+    Otherwise, the iterator returned points to the last item in [start,end) for which pred's 
+    operator() evaluated to true.
+
+2.
+a)
+                            pattern(3) 
+                         /   prints 3   \
+                        /                \
+            pattern(2)                      pattern(2)
+             prints 2                        prints 2
+           /          \                    /          \
+    pattern(1)       pattern(1)      pattern(1)      pattern(1)
+   /          \     /          \    /          \    /          \
+ p(0)        p(0) p(0)        p(0) p(0)       p(0) p(0)        p(0)
+
+ Function calls 2^n + 2^(n-1) + 2^(n-2) + ... + 2^0
+
+ Where p() = pattern()
+
+b)
+a = {1, 2, 3, 4}
+let addParts() = p()
+                           sumVector(a)
+                           {1, 2, 3, 4}
+                                |
+                         addParts(a, 0, 3)
+                        /                 \
+                    p(a,0,1)            p(a,2,3)
+                   /        \          /        \
+               p(a,0,0)   p(a,1,1)  p(a,2,2)  p(a,3,3)
+              returns 1  returns 2  returns 3  returns 4
+
+Let n be length of a
+Function calls n + n/2 + n/4 + ... + n/n + 1
+
+3.
+iterStart = a.begin()
+iterMid = a.begin() + (a.end() - a.begin()) / 2
+iterEnd = a.end()
+
+4.
+a) (A.end() - A.begin()) / 2
+b) ++itr and A.end()
+c) merge(A.begin( ), itr, ++itr,  A.end(), D.begin( ) );
+d) D.end()
+
+5.
+a)
+4: 2: 1: 0: 0: 
+1: 0: 0: 
+*
+2: 1: 0: 0: 
+1: 0: 0: 
+*
+***
+
+b) O(n*log(n))
+
+6.
+a)
+4: 2: 1: 0: 
+b) O(log(n))
+
+7.
+
+// For fib(3)
+fib(3)
+fib(2)
+fib(1)
+fib(0)
+fib(1)
+
+// For fib(4)
+fib(4)
+fib(3)
+fib(2)
+fib(1)
+fib(0)
+fib(1)
+fib(2)
+fib(1)
+fib(0)
+
+// For fib(5)
+fib(5)
+fib(4)
+fib(3)
+fib(2)
+fib(1)
+fib(0)
+fib(1)
+fib(2)
+fib(1)
+fib(0)
+fib(3)
+fib(2)
+fib(1)
+fib(0)
+fib(1)
+
+9.
+11 9 1 5 3 7 
+11 9 1 5 3 7 
+11 9 1 5 3 7 
+11 9 1 5 3 7 
+11 9 1 5 3 7 
+9 11 1 5 3 7 
+1 9 11 5 3 7 
+1 9 11 5 3 7 
+1 9 11 5 3 7 
+1 9 11 5 3 7 
+1 9 11 3 5 7 
+
+15.
+Stack<char> s; // [], s.top( ) = ???, x not defined
+char x = ’0’;  // [], s.top( ) = ???, x = ’0’
+s.push(’a’);   // [’a’], s.top( ) = ’a’, x = ’0’
+s.push(’b’);   // ['a', 'b'], s.top( ) = 'b', x = '0'
+s.push(’c’);   // ['a', 'b', 'c'], s.top( ) = 'c', x = '0'
+s.push(’d’);   // ['a', 'b', 'c', 'd'], s.top( ) = 'd', x = '0'
+x = s.top();   // ['a', 'b', 'c', 'd'], s.top( ) = 'd', x = 'd'
+s.pop();       // ['a', 'b', 'c'], s.top( ) = 'c', x = 'd'
+x = s.top();   // ['a', 'b', 'c'], s.top( ) = 'c', x = 'c'
+s.push(’e’);   // ['a', 'b', 'c', 'e'], s.top( ) = 'e', x = 'c'
+s.pop();       // ['a', 'b', 'c'], s.top( ) = 'c', x = 'c'
+s.pop();       // ['a', 'b'], s.top( ) = 'b', x = 'c'
+s.push(’f’);   // ['a', 'b', 'f'], s.top( ) = 'f', x = 'c'
+x = s.top();   // ['a', 'b', 'f'], s.top( ) = 'f', x = 'f'
+s.push(’g’);   // ['a', 'b', 'f', 'g'], s.top( ) = 'g', x = 'f'
+x = s.top();   // ['a', 'b', 'f', 'g'], s.top( ) = 'g', x = 'g'
+s.pop();       // ['a', 'b', 'f'], s.top( ) = 'f', x = 'g'
+x = s.top();   // ['a', 'b', 'f'], s.top( ) = 'f', x = 'f'
+
+16.
+int x;
+queue<int> q;   // [  ,  ,  ,  ], theFront = 0, theBack = 3,  currentSize = 0 , x = ?
+q.push(1);      // [ 1,  ,  ,  ], theFront = 0, theBack = 0; currentSize = 1; x = ?
+q.push(2);      // [ 1, 2,  ,  ], theFront = 0, theBack = 1; currentSize = 2; x = ?  
+x = q.front();  // [ 1, 2,  ,  ], theFront = 0, theBack = 1; currentSize = 2; x = 1
+q.push(3);      // [ 1, 2, 3,  ], theFront = 0, theBack = 2; currentSize = 3; x = 1
+q.pop();        // [  , 2, 3,  ], theFront = 1, theBack = 2; currentSize = 2; x = 1
+q.pop();        // [  ,  , 3,  ], theFront = 2, theBack = 2; currentSize = 1; x = 1
+q.push(4);      // [  ,  , 3, 4], theFront = 2, theBack = 3; currentSize = 2; x = 1
+q.push(5);      // [ 5,  , 3, 4], theFront = 2, theBack = 0; currentSize = 3; x = 1
+q.push(6);      // [ 5, 6, 3, 4], theFront = 2, theBack = 1; currentSize = 4; x = 1 
+x = q.front();  // [ 5, 6, 3, 4], theFront = 2, theBack = 1; currentSize = 4; x = 3          
+q.pop();        // [ 5, 6,  , 4], theFront = 3, theBack = 1; currentSize = 3; x = 3          
+q.pop();        // [ 5, 6,  ,  ], theFront = 0, theBack = 1; currentSize = 2; x = 3          
+q.pop();        // [  , 6,  ,  ], theFront = 1, theBack = 1; currentSize = 1; x = 3          
+x = q.front();  // [  , 6,  ,  ], theFront = 1, theBack = 1; currentSize = 1; x = 6           
+q.pop();        // [  ,  ,  ,  ], theFront = 2, theBack = 1; currentSize = 0; x = 6           
+q.push(7);      // [  ,  , 7,  ], theFront = 2, theBack = 2; currentSize = 1; x = 6    
+
