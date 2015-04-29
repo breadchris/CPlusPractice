@@ -3,6 +3,24 @@
 
 using namespace std;
 
+// Question 1
+class closest_stop {
+public:
+    closest_stop(double lat, double lon) : latitude(lat), longitude(lon), shortest_dist(numeric_limits<double>::max()) {}
+    bool operator()(const trainStopData& tsd) {
+        double new_dist = haverdist(latitude, longitude, tsd.get_latitude(), tsd.get_longitude());
+        if (new_dist < shortest_dist) {
+            shortest_dist = new_dist;
+            return true;
+        }
+        return false;
+    }
+private:
+    double latitude;
+    double longitude;
+    double shortest_dist;
+};
+
 // Question 2
 template <class Object>
 Object summation(int n, Object x) {
@@ -51,27 +69,40 @@ void permute(string& str, int i, int n)
    }
 }
 
-template<class Comparable>
-void printVec(vector<Comparable> & a) {
-    for (int i = 0; i < a.size(); i++) {
-        cout << a[i] << " ";
+template <class Itr>
+void mergeSort(Itr tmp, Itr first, Itr last ) {
+    if (first + 1 != last) {
+        Itr mid = first + ((last-first)/2);
+        mergeSort(tmp, first, mid);
+        mergeSort(tmp, mid, last);
+        Itr tmpEnd = merge(first, mid, mid, last, tmp);
+        while(tmp != tmpEnd) {
+            *first = *tmp;
+            first++;
+            tmp++;
+        }
     }
-    cout << endl;
 }
 
-template<class Comparable>
-void insertionSort( vector<Comparable> & a )
-{
-    int j;
-    for( int p = 1; p < a.size( ); p++ )
-    {
-         Comparable tmp = a[ p ];
-         for( j = p; j > 0 && tmp < a[ j - 1 ]; j-- )
-                  a[ j ] = a[ j - 1 ];
-         a[ j ] = tmp;
-         printVec(a);  // prints the contents of the vector in order
+class student {
+private:
+    string name;
+public:
+    student(const string& _name):name(_name) {}
+    string& getName() {
+        return name;
     }
-}
+};
+
+struct meFirst {
+  meFirst(string& _me) : me(_me) {}
+  bool operator()(student& a, student& b) {
+    if (a.getName() == me) return true;
+    return a.getName().compare(b.getName()) < 0 ? true : false;
+  }
+private:
+  string me;
+};
 
 int main() {
     // Question 2
@@ -89,13 +120,30 @@ int main() {
     string s = "cat";
     permute(s, 0, s.length() - 1);
 
-    vector<int>* asdf = new vector<int>(8);
-    asdf->push_back(9);
-    asdf->push_back(8);
-    asdf->push_back(-11);
-    asdf->push_back(2);
-    asdf->push_back(0);
-    asdf->push_back(3);
-    insertionSort(*asdf);
+    // Question 6
+    vector<int> ints ={10, 80, 14, 77, 35, 21, 99, 12};
+    mergeSort(ints.begin(), ints.end());
+    
+    for (int num: ints) {
+        cout << num << ", ";
+    }
+
+    cout << endl;
+
+    // Question 7
+    student* s1 = new student("Student 1");
+    student* s2 = new student("Student 2");
+    student* s3 = new student("Student 3");
+    student* s4 = new student("Student 4");
+    student* s5 = new student("Student 5");
+
+    vector<student> lol = {*s1, *s2, *s3, *s4, *s5};
+    sort(lol.begin(), lol.end(), meFirst("Student 3"));
+
+    for (student haha: lol) {
+        cout << haha.get_name()  << ", ";
+    }
+
+    cout << endl;
 }
 

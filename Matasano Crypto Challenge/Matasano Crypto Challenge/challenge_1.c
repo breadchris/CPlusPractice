@@ -3,9 +3,7 @@
 #include <string.h>
 #include <inttypes.h>
 
-
 static char* hexLookup    = "0123456789abcdef";
-static char* base64Lookup = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 char* pairHex(char*);
 int base64encode(const void*, size_t, char*, size_t);
@@ -13,7 +11,7 @@ int base64encode(const void*, size_t, char*, size_t);
 int main(int argc, char* argv[]) {
     char* tmp = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
     char* pair = pairHex(tmp);
-    int size = 4 * (1 + strlen(pair) / 3);
+    unsigned long size = 4 * (1 + strlen(pair) / 3);
     char* result = malloc(size);
     base64encode(pair, strlen(pair), result, size);
     printf("%s\n", result);
@@ -98,16 +96,15 @@ int base64encode(const void* data_buf, size_t dataLength, char* result, size_t r
 
 int asciiToHex(char ascii) {
     char* tmp = hexLookup;
-    int i = 1;
-    // LOL what is going on here?
-    // 0s just dont want to work here
-    if (ascii == '0')
-        return 0;
-    while (tmp = ((char*) ++tmp))
-        if (*tmp == ascii)
+    int i;
+    
+    for (i = 0; i < strlen(tmp); ++i) {
+        if (tmp[i] == ascii)
             return i;
         else
             i++;
+    }
+    
     return -1;
 }
 

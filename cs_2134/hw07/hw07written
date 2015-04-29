@@ -1,0 +1,269 @@
+1)
+
+# returns pointer to node that has obj as its obj
+def find(Node * node, const Comparable obj):
+	return null if node is null
+	if the obj is the same as the element of node, return node
+	if obj is greater than the element of node, then search to the right of node in the tree
+	if obj is less than the element of node, then search to the left of node in the tree
+
+def printInRange(Node * node, const Comparable low, const Comparable high):
+	return null if node is null
+	if the element of the current node is greater than the upper bound of the range, then search for elements to print to the left of the current node
+	if the element of the current node is less than the lower bound of the range, then search for elements to print to the right of the current node
+
+	print out the element of the current node as we know it is in the range
+	find elements to print out to the left and right of the current node
+
+def negateTree(Node * node):
+	return null if node is null
+	negate the value of the element of the current node
+	switch the left and right branches of the current node
+	negate the tree to the left and right of the current node
+
+def countNodesWithOneChild(Node * node):
+	return null if node is null
+	if the current node only has one child then add one to the count
+	search to the left and right for elements with one child to add to the count
+
+def averageNodeDepth(Node * node, int depth):
+	return null if node is null
+	if we are at depth of 0, just called averageNodeDepth, then calculate the depths of all nodes to the left and right of the root node and divide those sums by the number of elements in the tree
+	return the depth of the current node plus the depths of all nodes to the left and right of the current node
+
+2) let n be the number of elements in tree
+	a. O(log(n))
+	b. O(log(n))
+	c. O(n)
+	d. O(n)
+	e. O(n)
+3) 
+
+template <class Comparable>
+BinaryNode<Comparable> * BinarySearchTree<Comparable>::findMin( Node * t ) const
+{
+	// if t is initially NULL, then t->left will segfault
+	while( t->left != NULL && t != NULL )
+		t = t->left;
+	return t;
+}
+
+// FIXED
+template <class Comparable>
+BinaryNode<Comparable> * BinarySearchTree<Comparable>::findMin( Node * t ) const
+{
+	while( t != NULL && t->left != NULL )
+		t = t->left;
+	return t;
+}
+
+4)
+
+template <class Comparable>
+void BinarySearchTree<Comparable>::removeMin( Node *  t ) const
+{
+	if( t == nullptr )
+		throw UnderflowException( );
+	else if( t->left == nullptr )
+	{
+		Node *tmp = t;
+		t = t->right;
+		delete tmp;
+		// Size is not changed
+		return;
+	}
+	else
+		removeMin( t->left );
+
+	// t does not point to a binary search tree, it is just a node
+	t->size--;
+}
+
+// FIXED
+template <class Comparable>
+void BinarySearchTree<Comparable>::removeMin( Node *  t ) const
+{
+	if( t == nullptr )
+		throw UnderflowException( );
+	else if( t->left == nullptr )
+	{
+		Node *tmp = t;
+		t = t->right;
+		delete tmp;
+		this->size--;
+		return;
+	}
+	else
+		removeMin( t->left );
+}
+
+5)
+			   (22 b)
+		   	  /      \
+	 	(17 b)		  (30 b)
+       /      \      
+ (14 r)		   (18 r)
+
+// add 50
+
+			   (22 b)
+		   	  /      \
+	 	(17 b)		  (30 b)
+       /      \      		\
+ (14 r)		   (18 r)		 (50 r)
+ No violation
+// add 44
+			   (22 b)
+		   	  /      \
+	 	(17 b)		  (30 b)
+       /      \      		\
+ (14 r)		   (18 r)		 (50 r)
+ 							/
+ 					  (44 r)
+ violation, uncle is red as well as new node
+
+			   (22 b)
+		   	  /      \
+	 	(17 b)		  (30 b)
+       /      \      		\
+ (14 r)		   (18 r)		 (50 r)
+ 							/
+ 					  (44 r)
+
+			   (22 b)
+		   	  /      \
+	 	(17 b)		  (30 b)
+       /      \      		\
+ (14 r)		   (18 r)		 (44 r)
+ 								   \
+ 					  				(50 r)
+			   (22 b)__
+		   	  /      	\
+	 	(17 b)		  	 ---(44 r)
+       /      \      	   /	  \
+ (14 r)		   (18 r) (30 b)	   (50 r)
+
+			   (22 b)__
+		   	  /      	\
+	 	(17 b)		  	 ---(44 b)
+       /      \      	   /	  \
+ (14 r)		   (18 r) (30 r)	   (50 r)
+
+6)
+	http://i.imgur.com/9n9Qkxth.jpg
+
+7)
+template <class Comparable>
+void RedBlackTree <Comparable>::rightRotateRecolor(Node*& k2 ) const {
+    Node*k1 = k2->left;
+    k2->left = k1->right;
+    k1->right = k2;
+    
+    int tempcol = k1->color;
+    k1->color = k2->color;
+    k2->color = tempcol;
+
+    k2 = k1;
+}
+8)
+The sizes specified in the question are all multiples of 4. If the hash function first multiplies the number by 4 and then mods it by the size, then chances are it will be divisible by the size as they are both multiples of the same number. This will lead to a lot of collisions.
+9) Let PO = Previously Occupied
+a.
+-- Inserting 4371 and 6173 --
+4371 mod 5 = 1
+position:	|	0	|	1	|	2	|	3	|	4	|	5	| 
+			-------------------------------------------------
+values:		|		| 4371  |		|		|		|		|
+
+6173 mod 5 = 3
+position:	|	0	|	1	|	2	|	3	|	4	|	5	| 
+			-------------------------------------------------
+values:		|		|  4371 |		|  6173 |		|		|
+ 
+-- Removing 6173 -- 
+6173 mod 5 = 3
+position:	|	0	|	1	|	2	|	3	|	4	|	5	| 
+			-------------------------------------------------
+values:		|		|  4371 |		|   PO  |		|		|
+
+-- Inserting 3327 and 26 -- 
+3327 mod 5 = 2
+position:	|	0	|	1	|	2	|	3	|	4	|	5	| 
+			-------------------------------------------------
+values:		|		|  4371 |  3327 |   PO  |		|		|
+
+26 mod 5 = 1
+position:	|	0	|	1	|	2	|	3	|	4	|	5	| 
+			-------------------------------------------------
+values:		|		|  4371 |  3327 |   26  |		|		|
+
+-- Resizing to M = 11 --
+x mod M for x in (4371, 3327, 26) then insert each element in their respective spot
+
+position:	|	0	|	1	|	2	|	3	|	4	|	5	|	6	|	7	|	8	|	9	|	10	|	11	|
+			-------------------------------------------------------------------------------------------------
+values:		|		|		|		|		|  4371 |  3327 |   26  |		|		|		|		|		|
+
+-- Inserting 4199, 4340, 9679, 1323 --
+x mod M for x in (4199, 4340, 9679, 1323) then insert each element in their respective spot
+
+position:	|	0	|	1	|	2	|	3	|	4	|	5	|	6	|	7	|	8	|	9	|	10	|	11	|
+			-------------------------------------------------------------------------------------------------
+values:		|		|		|		|  1323 |  4371 |  3327 |   26  |  4340 |  4199 |		|  9679 |		|
+
+b.
+-- Inserting 4371, 1323, 6173, 4199, 4344, 9679 --
+x mod M for x in (4371, 1323, 6173, 4199, 4344, 9679) then insert each element in their respective spot
+position:	|	0	|	1	|	2	|	3	|	4	|	5	| 
+			-------------------------------------------------
+values:		|		|  4371 |		|  1323 |  4199 |		|
+										||		||
+										\/		\/
+									   6173	   4344
+									   			||
+									   			\/
+									   		   9679
+
+-- Removing 6173 -- 
+position:	|	0	|	1	|	2	|	3	|	4	|	5	| 
+			-------------------------------------------------
+values:		|		|  4371 |		|  1323 |  4199 |		|
+												||
+												\/
+									   		   4344
+									   			||
+									   			\/
+									   		   9679
+
+-- Inserting 3324 -- 
+position:	|	0	|	1	|	2	|	3	|	4	|	5	| 
+			-------------------------------------------------
+values:		|		|  4371 |		|  1323 |  4199 |		|
+												||
+												\/
+									   		   4344
+									   			||
+									   			\/
+									   		   9679
+									   		    ||
+									   		    \/
+									   		   3324
+-- Resizing to M = 11 --
+position:	|	0	|	1	|	2	|	3	|	4	|	5	|	6	|	7	|	8	|	9	|	10	|	11	|
+			-------------------------------------------------------------------------------------------------
+values:		|		|		|  3324 |  1323 |  4371 |		|		|		|  4199 |		|  4344 |		|
+																								||
+																								\/
+																							   9679
+
+-- Inserting 21 --
+21 mod 11 = 10
+position:	|	0	|	1	|	2	|	3	|	4	|	5	|	6	|	7	|	8	|	9	|	10	|	11	|
+			-------------------------------------------------------------------------------------------------
+values:		|		|		|  3324 |  1323 |  4371 |		|		|		|  4199 |		|  4344 |		|
+																								||
+																								\/
+																							   9679
+																							    ||
+																							    \/
+																							    21

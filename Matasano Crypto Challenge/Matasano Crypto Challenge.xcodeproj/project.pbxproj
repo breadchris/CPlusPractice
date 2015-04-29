@@ -1,0 +1,271 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		047FF8661ABFC8FB00FFA701 /* challenge_6.c in Sources */ = {isa = PBXBuildFile; fileRef = 047FF8641ABFC8FB00FFA701 /* challenge_6.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		049295E11ABF27AB00E3C087 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		04326D921ABF28A0003B04C3 /* challenge_1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = challenge_1.c; sourceTree = "<group>"; };
+		04326D931ABF28A0003B04C3 /* challenge_2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = challenge_2.c; sourceTree = "<group>"; };
+		04326D941ABF28A0003B04C3 /* challenge_3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = challenge_3.c; sourceTree = "<group>"; };
+		04627F281ABF341200D11151 /* challenge_4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = challenge_4.c; sourceTree = "<group>"; };
+		04627F2C1ABF5E5100D11151 /* challenge_4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = challenge_4.txt; sourceTree = "<group>"; };
+		04627F301ABF748B00D11151 /* challenge_5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = challenge_5.c; sourceTree = "<group>"; };
+		047FF8641ABFC8FB00FFA701 /* challenge_6.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = challenge_6.c; sourceTree = "<group>"; };
+		047FF8671AC0B3DD00FFA701 /* challenge_6.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = challenge_6.txt; sourceTree = "<group>"; };
+		049295E31ABF27AB00E3C087 /* Matasano Crypto Challenge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Matasano Crypto Challenge"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		049295E01ABF27AB00E3C087 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04627F2B1ABF5E2900D11151 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				047FF8671AC0B3DD00FFA701 /* challenge_6.txt */,
+				04627F2C1ABF5E5100D11151 /* challenge_4.txt */,
+			);
+			name = Data;
+			path = "Matasano Crypto Challenge";
+			sourceTree = "<group>";
+		};
+		04627F2D1ABF740400D11151 /* Set 1 */ = {
+			isa = PBXGroup;
+			children = (
+				04326D921ABF28A0003B04C3 /* challenge_1.c */,
+				04326D931ABF28A0003B04C3 /* challenge_2.c */,
+				04326D941ABF28A0003B04C3 /* challenge_3.c */,
+				04627F281ABF341200D11151 /* challenge_4.c */,
+				04627F301ABF748B00D11151 /* challenge_5.c */,
+				047FF8641ABFC8FB00FFA701 /* challenge_6.c */,
+			);
+			name = "Set 1";
+			sourceTree = "<group>";
+		};
+		049295DA1ABF27AB00E3C087 = {
+			isa = PBXGroup;
+			children = (
+				04627F2B1ABF5E2900D11151 /* Data */,
+				049295E51ABF27AB00E3C087 /* Matasano Crypto Challenge */,
+				049295E41ABF27AB00E3C087 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		049295E41ABF27AB00E3C087 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				049295E31ABF27AB00E3C087 /* Matasano Crypto Challenge */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		049295E51ABF27AB00E3C087 /* Matasano Crypto Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				04627F2D1ABF740400D11151 /* Set 1 */,
+			);
+			path = "Matasano Crypto Challenge";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		049295E21ABF27AB00E3C087 /* Matasano Crypto Challenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 049295EA1ABF27AB00E3C087 /* Build configuration list for PBXNativeTarget "Matasano Crypto Challenge" */;
+			buildPhases = (
+				049295DF1ABF27AB00E3C087 /* Sources */,
+				049295E01ABF27AB00E3C087 /* Frameworks */,
+				049295E11ABF27AB00E3C087 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Matasano Crypto Challenge";
+			productName = "Matasano Crypto Challenge";
+			productReference = 049295E31ABF27AB00E3C087 /* Matasano Crypto Challenge */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		049295DB1ABF27AB00E3C087 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Christopher Thompson";
+				TargetAttributes = {
+					049295E21ABF27AB00E3C087 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = 049295DE1ABF27AB00E3C087 /* Build configuration list for PBXProject "Matasano Crypto Challenge" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 049295DA1ABF27AB00E3C087;
+			productRefGroup = 049295E41ABF27AB00E3C087 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				049295E21ABF27AB00E3C087 /* Matasano Crypto Challenge */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		049295DF1ABF27AB00E3C087 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047FF8661ABFC8FB00FFA701 /* challenge_6.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		049295E81ABF27AB00E3C087 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		049295E91ABF27AB00E3C087 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		049295EB1ABF27AB00E3C087 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		049295EC1ABF27AB00E3C087 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		049295DE1ABF27AB00E3C087 /* Build configuration list for PBXProject "Matasano Crypto Challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049295E81ABF27AB00E3C087 /* Debug */,
+				049295E91ABF27AB00E3C087 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		049295EA1ABF27AB00E3C087 /* Build configuration list for PBXNativeTarget "Matasano Crypto Challenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				049295EB1ABF27AB00E3C087 /* Debug */,
+				049295EC1ABF27AB00E3C087 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 049295DB1ABF27AB00E3C087 /* Project object */;
+}

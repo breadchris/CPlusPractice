@@ -15,7 +15,7 @@ int asciiToHex(char ascii) {
     return -1;
 }
 
-char* pairHex(char* hex, unsigned int size) {
+char* pairHex(char* hex, unsigned long size) {
     if (size % 2 == 0) {
         char* paired = (char *) malloc(size / 2);
         for (int i = 0; i < strlen(hex); i += 2) {
@@ -31,7 +31,7 @@ char* pairHex(char* hex, unsigned int size) {
 }
 
 char* do_xor(char* a, char* b) {
-    unsigned int size = strlen(a);
+    unsigned long size = strlen(a);
     char* fixedA = pairHex(a, size);
     char* fixedB = pairHex(b, size);
     char* out = malloc(size / 2);
@@ -43,7 +43,7 @@ char* do_xor(char* a, char* b) {
     return out;
 }
 
-int main() {
+void test() {
     char* a = "1c0111001f010100061a024b53535009181c";
     char* b = "686974207468652062756c6c277320657965";
     

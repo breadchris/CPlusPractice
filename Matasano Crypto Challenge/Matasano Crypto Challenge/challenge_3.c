@@ -15,7 +15,7 @@ int asciiToHex(char ascii) {
     return -1;
 }
 
-char* pairHex(char* hex, unsigned int size) {
+char* pairHex(char* hex, unsigned long size) {
     if (size % 2 == 0) {
         char* paired = (char *) malloc(size / 2);
         for (int i = 0; i < strlen(hex); i += 2) {
@@ -29,7 +29,7 @@ char* pairHex(char* hex, unsigned int size) {
 }
 
 char* keyedXOR(char* a, int n) {
-    unsigned int size = strlen(a);
+    unsigned long size = strlen(a);
     char* out = malloc(size);
 
     for (int i = 0; i < size; i++) {
@@ -50,22 +50,27 @@ int scoreDecryptedText(char* a) {
 
 char* breakXOR(char* a) {
     char* test = NULL;
-    int scores[255];
-    for (int i = 0; i < sizeof(scores); i++) {
+    int numOfKeys = 255;
+    int scores[numOfKeys];
+    for (int i = 0; i < numOfKeys; i++) {
         test = keyedXOR(a, i);
         scores[i] = scoreDecryptedText(test);
+        printf("%d (%d): %s\n", i, scores[i], test);
         free(test);
-        printf("%d ", scores[i]);
     }
     
     int biggest = 0, key = 0;
-    for (int i = 0; i < sizeof(scores); i++) {
-        if (scores[i] > biggest) key = i;
+    for (int i = 0; i < numOfKeys; i++) {
+        if (scores[i] > biggest) {
+            key = i;
+            biggest = scores[i];
+        }
     }
 
     printf("%d\n", key);
 
-    return NULL;
+    // 88 is the key
+    return keyedXOR(a, 88);
 }
 
 int main() {
@@ -73,12 +78,5 @@ int main() {
     char* fixedEnc = pairHex(enc, strlen(enc));
     
     char* result = breakXOR(fixedEnc);
-   
-    /*
-    char* tmp = result;
-    for (int i = 0; i < strlen(result); i++) {
-        printf("%x", tmp[i]);
-    }
-    */
-    
+    printf("%s\n", result);
 }

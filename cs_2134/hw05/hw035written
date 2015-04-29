@@ -1,0 +1,297 @@
+1)
+
+  header
+ --------
+|  data  | --> NULL
+ --------
+|  next  | --> NULL
+ --------
+
+LList<int> list = LList<int>();
+
+2)
+
+a.
+
+  before
+
+  header
+ --------
+|  data  | --> NULL
+ --------
+|  next  | --> NULL
+ --------
+
+------------------------
+
+  after 
+
+  header              0th LListNode
+ --------               --------
+|  data  | --> NULL    |  data  | --> 1337
+ --------               --------
+|  next  | ----------> |  next  | --> NULL
+ --------               --------
+
+// before
+list.push_front(1337);
+// after
+
+b.
+
+  before
+
+  header              0th LListNode           1st LListNode          2nd LListNode          3rd LListNode
+ --------               --------                --------               --------               --------
+|  data  | --> NULL    |  data  | --> 4        |  data  | --> 3       |  data  | --> 2       |  data  | --> 1 
+ --------               --------                --------               --------               --------
+|  next  | ----------> |  next  |  ----------> |  next  | ----------> |  next  | ----------> |  next  | --> NULL
+ --------               --------                --------               --------               --------
+
+------------------------
+
+  after 
+
+  header              0th LListNode           1st LListNode          2nd LListNode
+ --------               --------                --------               --------
+|  data  | --> NULL    |  data  | --> 3        |  data  | --> 2       |  data  | --> 1
+ --------               --------                --------               --------
+|  next  | ----------> |  next  |  ----------> |  next  | ----------> |  next  | --> NULL
+ --------               --------                --------               --------
+
+list.push_front(1);
+list.push_front(2);
+list.push_front(3);
+list.push_front(4);
+// before
+list.pop_front();
+// after
+c.
+
+  before
+
+  header              0th LListNode           1st LListNode          2nd LListNode          3rd LListNode
+ --------               --------                --------               --------               --------
+|  data  | --> NULL    |  data  | --> 4        |  data  | --> 3       |  data  | --> 2       |  data  | --> 1 
+ --------               --------                --------               --------               --------
+|  next  | ----------> |  next  |  ----------> |  next  | ----------> |  next  | ----------> |  next  | --> NULL
+ --------               --------                --------               --------               --------
+
+------------------------
+
+  after 
+
+  header              0th LListNode           1st LListNode          2nd LListNode
+ --------               --------                --------               --------
+|  data  | --> NULL    |  data  | --> 4        |  data  | --> 2       |  data  | --> 1
+ --------               --------                --------               --------
+|  next  | ----------> |  next  |  ----------> |  next  | ----------> |  next  | --> NULL
+ --------               --------                --------               --------
+
+list.push_front(1);
+list.push_front(2);
+list.push_front(3);
+list.push_front(4);
+LListItr<int> itr = list.begin();
+// before
+list.erase_after(itr);
+// after
+
+3)
+a. valid
+b. invalid, lists are not allocated in contigious space
+c. valid
+4)
+
+enum TokenType { EOL, VALUE, OPAREN, CPAREN, EXP, MODULOUS
+MULT, DIV, PLUS, MINUS };
+// PREC_TABLE matches order of Token enumeration
+struct Precedence
+{
+int inputSymbol;
+int topOfStack;
+} PREC_TABLE [ ] =
+{
+{ 0, -1 }, { 0, 0 },            // EOL, VALUE
+{ 100, 0 }, { 0, 99 },          // OPAREN, CPAREN
+{ 6, 5 },                       // EXP
+{ 3, 4}, { 3, 4 }, { 3, 4 },    // MODULOUS, MULT, DIV
+{ 1, 2 }, { 1, 2 }              // PLUS, MINUS
+};
+
+5)
+
+output
+------
+4
+4
+6
+
+opStack
+-------
+7
+0
+
+6)
+No, p->next is deleted before it is attempted to be accessed again:
+LListNode<Object> *oldNode = p->next;
+delete oldNode;
+p->next = p->next->next; // You are trying to access the next pointer of p (aka oldNode) but it was just deleted in the previous line
+7)
+a.
+8 4 2 / 3 3 ^ - +
+
+input   stack
+8       8
+4       8 4
+2       8 4 2
+/       8 2
+3       8 2 3
+3       8 2 3 3
+^       8 2 27
+-       8 -25
++      -17
+
+b.
+2 4 ^ 2 6 * -
+
+input   stack
+2       2
+4       2  4
+^       16
+2       16 2
+6       16 2 6
+*       16 12
+-       4
+
+c.
+4 2 3 * - 3 2 ^ - 6 +
+
+input   stack
+4       4
+2       4 2
+3       4 2 3
+*       4 6
+-      -2
+3      -2 3
+2      -2 3 2
+^      -2 9
+-     -11
+6     -11 6
++      -5
+
+d.
+9 3 / 2 * 1 -
+
+input   stack
+9       9
+3       9 3
+/       3
+2       3 2
+*       6
+1       6 1
+-       5
+
+e.
+2 5 / 8 + 7 * 4 +
+
+input   stack
+2       2
+5       2 5
+/     0.4
+8     0.4 8
++     8.4
+7     8.4 7
+*    58.8
+4    58.8 4
++    62.8
+
+8)
+a.
+(5 - 2)/3 + 3 ^ 2
+5 2 - / 3 + 3 ^ 2
+5 2 - / 3 + 3 2 ^
+5 2 - 3 / + 3 2 ^
+5 2 - 3 / 3 2 ^ +
+
+input   postFix         operators
+(                       (
+5       5               (
+-       5               ( -
+2       5 2             ( -
+)       5 2 -
+/       5 2 -           /
+3       5 2 - 3         /
++       5 2 - 3 /       +
+3       5 2 - 3 / 3     +
+^       5 2 - 3 / 3     + ^
+2       5 2 - 3 / 3 2   + ^
+
+        5 2 - 3 / 3 2 ^ +
+
+b.
+8 + (2 ^ 3) ^ 2
+
+input   postFix         operators
+8       8
++       8               +
+(       8               + (
+2       8 2             + (
+^       8 2             + ( ^
+3       8 2 3           + ( ^
+)       8 2 3 ^         +
+^       8 2 3 ^         + ^
+2       8 2 3 ^ 2       + ^
+        8 2 3 ^ 2 ^ +
+
+c.
+2 ^ 3 ^ 2 + 8
+
+input   postFix         operators
+2       2
+^       2               ^
+3       2 3             ^
+^       2 3 ^           ^
+2       2 3 ^ 2         ^
++       2 3 ^ 2 ^       +
+8       2 3 ^ 2 ^ 8     +
+        2 3 ^ 2 ^ 8 +
+
+d.
+(2 + 6) / 3 - ( (32 + 4) * 7) * 2
+
+input   postFix                 operators
+(                               (
+2       2                       (
++       2                       ( +
+6       2 6                     ( +
+)       2 6 +
+/       2 6 +                   /
+3       2 6 + 3                 /
+-       2 6 + 3 /               -
+(       2 6 + 3 /               - (
+(       2 6 + 3 /               - ( (
+32      2 6 + 3 / 32            - ( (
++       2 6 + 3 / 32            - ( ( +
+4       2 6 + 3 / 32 4          - ( ( +
+)       2 6 + 3 / 32 4 +        - (  
+*       2 6 + 3 / 32 4 +        - ( *
+7       2 6 + 3 / 32 4 + 7      - ( *
+)       2 6 + 3 / 32 4 + 7 *    -
+*       2 6 + 3 / 32 4 + 7 *    - *
+2       2 6 + 3 / 32 4 + 7 * 2  - *
+        2 6 + 3 / 32 4 + 7 * 2 * -
+
+e.
+3 * 2 / 4 * 5
+
+input   postFix         operators
+3       3
+*       3               *
+2       3 2             *
+/       3 2 *           /
+4       3 2 * 4         /
+*       3 2 * 4 /       *
+5       3 2 * 4 / 5     *
+        3 2 * 4 / 5 *
+
