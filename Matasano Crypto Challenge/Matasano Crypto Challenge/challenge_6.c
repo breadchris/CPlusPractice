@@ -161,6 +161,7 @@ int main() {
     char* encFile = malloc(strlen(b64EncFile));
     Base64decode(encFile, b64EncFile);
     unsigned int keysize = findKeysize(encFile);
+    printf("%d", keysize);
     char* byteBlocks[keysize];
     
     for (int i = 0; i < keysize - 1; i++) {
