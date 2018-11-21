@@ -1,0 +1,135 @@
+Testing: ct1624
+Detected language: c
+Compilation successful.
+Running test case #1
+Passed!
+Running test case #2
+Passed!
+Running test case #3
+Passed!
+Running test case #4
+Passed!
+Running test case #5
+Passed!
+Running test case #6
+Passed!
+Running test case #7
+Passed!
+Running test case #8
+Passed!
+Running test case #9
+Passed!
+Running test case #10
+Passed!
+Running test case #11
+Passed!
+Running test case #12
+Passed!
+Running test case #13
+Passed!
+Running test case #14
+Passed!
+Running test case #15
+Passed!
+Running test case #16
+Passed!
+Running test case #17
+Passed!
+Running test case #18
+Passed!
+Running test case #19
+Passed!
+Running test case #20
+Passed!
+Running test case #21
+Passed!
+Running test case #22
+Passed!
+Running test case #23
+Passed!
+Running test case #24
+Passed!
+Running test case #25
+Passed!
+Running test case #26
+Passed!
+Running test case #27
+Passed!
+Running test case #28
+Passed!
+Running test case #29
+Passed!
+Running test case #30
+Passed!
+Running test case #31
+Passed!
+Running test case #32
+Passed!
+Running test case #33
+Passed!
+Running test case #34
+Failed test: Invalid location for '.'
+Error: Token contents do not match.
+Running test case #35
+Passed!
+Running test case #36
+Failed test: ID with a prefix that is the same as a keyword.
+Error: Wrong number of tokens for output (You: 3, correct: 2)
+Running test case #37
+Passed!
+Running test case #38
+Passed!
+Running test case #39
+Passed!
+Running test case #40
+Passed!
+Running test case #41
+Failed test: Multiple floats concatenated without spaces
+Error: Wrong number of tokens for output (You: 2, correct: 5)
+Running test case #42
+Failed test: Single invalid character
+Error: Wrong number of tokens for output (You: 1, correct: 2)
+Running test case #43
+Passed!
+Running test case #44
+Failed test: Single invalid character with tabs
+Error: Wrong number of tokens for output (You: 1, correct: 3)
+Running test case #45
+Passed!
+Running test case #46
+Passed!
+Running test case #47
+Passed!
+Running test case #48
+Passed!
+Running test case #49
+Passed!
+Running test case #50
+Passed!
+Running test case #51
+Passed!
+Running test case #52
+Passed!
+Running test case #53
+Passed!
+Running test case #54
+Passed!
+Running test case #55
+Passed!
+Running test case #56
+Failed test: Very long ID
+Error: No Total line.
+Running test case #57
+Passed!
+Running test case #58
+Failed test: Very long string
+Error: No Total line.
+Running test case #59
+Passed!
+Running test case #60
+Passed!
+The starting score for a working program was: 50
+Test cases are worth 0.83 each.
+You passed 53 cases out of 60.
+You had 0 points in deductions.
+Your final score (base + passes*value - deductions) = **94 points**

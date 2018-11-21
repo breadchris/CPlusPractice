@@ -1,0 +1,68 @@
+Testing: ct1624
+Detected language: c
+Compilation successful.
+Running test case #1
+I think your header is 24 bytes.
+First pointer out of old heap: 0x7f3c2fc62018
+Computed start of old heap: 0x7f3c2fc62000
+Computed end of old heap: 0x7f3c33c62000
+Computed size of old heap: 4000000
+Computed another way: 4000000
+Collect copied 0 objects (should be 0)
+First pointer out of new heap: 0x7f3c2bc62018
+Computed start of new heap: 0x7f3c2bc62000
+Computed end of new heap: 0x7f3c2fc62000
+Computed size of new heap: 4000000
+Passed.
+Running test case #2
+Passed.
+Running test case #3
+Passed.
+Running test case #4
+Passed.
+Running test case #5
+Passed.
+Running test case #6
+Passed.
+Running test case #7
+Passed.
+Running test case #8
+Failed.   Was testing: Simple linked list; check that *collected is properly set.
+Running test case #9
+Passed.
+Running test case #10
+Passed.
+Running test case #11
+Failed.   Was testing: Adding a root twice then deleting it.
+Running test case #12
+Failed.   Was testing: Basic copying layout.
+Running test case #13
+Failed.   Was testing: Ensuring defragmentation with some bigger allocs.
+Running test case #14
+Failed.   Was testing: Ensuring defragmentation with a more complicated linked list structure.
+Running test case #15
+Passed.
+Running test case #16
+Failed.   Was testing: Doubly linked list...
+Running test case #17
+Failed.   Was testing: Circular doubly linked list...
+Running test case #18
+Failed.   Was testing: Doubly linked list with a big array containing roots...
+Running test case #19
+Failed.   Was testing: Ensure forwarding address is working right
+Running test case #20
+Passed.
+Running test case #21
+Passed.
+Running test case #22
+Passed.
+Running test case #23
+Passed.
+Running test case #24
+Passed.
+Running test case #25
+Failed.   Was testing: Ensure data consistency over multiple collects.
+The starting score for a working program was: 50
+Test cases are worth 2.00 each.
+You passed 15 cases out of 25.
+Your final score (base + passes*value - deductions) = **80 points**

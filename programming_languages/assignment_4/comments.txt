@@ -1,0 +1,57 @@
+Testing: ct1624
+Detected language: c
+Compilation successful.
+Running test case #1
+passed.
+Running test case #2
+passed.
+Running test case #3
+passed.
+Running test case #4
+passed.
+Running test case #5
+passed.
+Running test case #6
+passed.
+Running test case #7
+passed.
+Running test case #8
+passed.
+Running test case #9
+Failed.   Was testing: Checking that you're using the free list before the unallocated heap.
+Running test case #10
+Failed.   Was testing: Checking that you're using the free list with non-same size chunks.
+Running test case #11
+Failed.   Was testing: Does allocating from the middle of a free list work right?
+Running test case #12
+passed.
+Running test case #13
+passed.
+Running test case #14
+passed.
+Running test case #15
+passed.
+Running test case #16
+passed.
+Running test case #17
+passed.
+Running test case #18
+Failed.   Was testing: Do you still free if you detect a buffer overflow?
+Running test case #19
+Failed.   Was testing: Test basic merging to the right?
+Running test case #20
+Failed.   Was testing: Basic merging to the left?
+Running test case #21
+Failed.   Was testing: Right merge for something down in the free list?
+Running test case #22
+Failed.   Was testing: Left merge for something down in the free list?
+Running test case #23
+Failed.   Was testing: Simple merge on both sides, with left side first in the free list
+Running test case #24
+Failed.   Was testing: Simple merge on both sides, with right side first in the free list.
+Running test case #25
+Failed.   Was testing: More complicated merge on both sides, with right side first in the free list.
+The starting score for a working program was: 50
+Test cases are worth 2.00 each.
+You passed 14 cases out of 25.
+Your final score (base + passes*value - deductions) = **78 points**

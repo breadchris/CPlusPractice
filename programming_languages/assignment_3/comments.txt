@@ -1,0 +1,61 @@
+Case 1: passed.
+Case 2: passed.
+Case 3: passed.
+Case 4 (3 tests):
+  Test a: passed.
+  Test b: passed.
+  Test c: passed.
+Case 5 (3 tests):
+  Test a: passed.
+  Test b: passed.
+  Test c: passed.
+Case 6 (5 tests):
+  TIMEOUT.
+Case 7 (5 tests):
+  Test a: passed.
+  Test b: passed.
+  Test c: passed.
+  Test d: passed.
+  Test e: failed.  Expected: [[int]]; Got: >>[`int]<<
+Case 8: passed.
+Case 9: passed.
+Case 10: passed.
+Case 11 (4 tests):
+  TIMEOUT.
+Case 12: passed.
+Case 13:   TIMEOUT.
+Case 14: passed.
+Case 15: passed.
+Case 16: failed.  Expected: BOTTOM; Got: >>(int)->int
+`p<<
+Case 17: passed.
+Case 18: passed.
+Case 19: failed.  Expected: BOTTOM; Got: >>ERR<<
+Case 20: passed.
+Case 21 (4 tests):
+  TIMEOUT.
+Case 22: failed.  Expected: (int,int)->(int,int)->int; Got: >>(int,int)->(int,`a)->`b<<
+Case 23 (3 tests):
+  Test a: passed.
+  Test b: passed.
+  Test c: failed.  Expected: BOTTOM; Got: >>ERR<<
+Case 24: passed.
+Case 25 (2 tests):
+  Test a: passed.
+  Test b: failed.  Expected: BOTTOM; Got: >>ERR<<
+Case 26: failed.  Expected: ()->int; Got: >>ERR<<
+Case 27: passed.
+Case 28: failed.  Expected: ERR; Got: >>int<<
+Case 29: passed.
+Case 30: failed.  Expected: BOTTOM; Got: >>ERR<<
+Case 31: failed.  Expected: BOTTOM; Got: >>([`a],[`b])->int<<
+Case 32 (3 tests):
+  Test a: passed.
+  Test b: passed.
+  Test c: failed.  Expected: BOTTOM; Got: >>[`a]<<
+Case 33 (2 tests):
+  Test a: passed.
+  Test b: failed.  Expected: BOTTOM; Got: >>[`x]<<
+Case 34: failed.  Expected: BOTTOM; Got: >>(`a,`b)->`c<<
+Base score: 60
+Got: 31 right out of 58, for a score of 81

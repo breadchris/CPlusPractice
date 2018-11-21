@@ -1,0 +1,38 @@
+Testing: ct1624
+Detected language: c
+Compilation successful.
+Test 1: passed
+Test 2: failed.   Testing Null statement
+Test 3: passed
+Test 4: passed
+Test 5: passed
+Test 6: passed
+Test 7: passed
+Test 8: passed
+Test 9: passed
+Test 10: passed
+Test 11: passed
+Test 12: failed.   Testing More complex math
+Test 13: passed
+Test 14: failed.   Testing Basic for loop
+Test 15: passed
+Test 16: passed
+Test 17: passed
+Test 18: failed.   Testing Many tests in conditional
+Test 19: passed
+Test 20: passed
+Test 21: passed
+Test 22: passed
+Test 23: passed
+Test 24: passed
+Test 25: failed.   Testing For loop with omitted first assignment
+Test 26: failed.   Testing For loop with omitted second assignment
+Test 27: failed.   Testing For loop with omitted conditional
+Test 28: failed.   Testing For loop used as a while(1)
+Test 29: passed
+Test 30: failed.   Testing Long compound statement
+The starting score for a working program was: 50
+Test cases are worth 1.67 each.
+You passed 21 cases out of 30.
+You had 0 points in deductions.
+Your final score (base + passes*value - deductions) = **85 points**
